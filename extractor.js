@@ -40,12 +40,12 @@ function extract() {
     });
 
     var temp = [];
-    for (var i = 0; i < Math.floor(x/8); i++) {
+    for (var i = 0; i < Math.floor(x/4); i++) {
         temp.push(combination[i].kw);
     }
 
     var combination = [];
-    for (var i = 0; i < Math.floor(x/10); i++) {
+    for (var i = 0; i < Math.floor(x/5); i++) {
         if (combination.includes(temp[i]) == false) {
             combination.push(temp[i]);
         }
@@ -91,6 +91,8 @@ function removeStopwords(str) {
     str = str.replaceAll('’ve', " have");
     str = str.replaceAll('t’s', "t is");
     str = str.replaceAll("t's", "t is");
+    str = str.replaceAll("’ll", " will");
+    str = str.replaceAll("'ll", " will");
     str = str.replaceAll('\n', " wwttff ");
     for (var i = 0; i < n; i++) {
         str = str.replaceAll(" "+fox_stoplist[i]+" ", " wwttff ");
