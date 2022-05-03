@@ -6,11 +6,10 @@ form {
   position: relative;
 }
 
-#textbox
-{
-  font-family: 'Roboto', sans-serif;
-  font-size: auto;
-  font-weight: 700;
+#textbox {
+  font-family: TwitterChirp, sans-serif;
+  font-size: 12pt;
+  font-weight: 400;
   line-height: 140%;
   border-radius: 10px;
   border-color: #990a2c;
@@ -24,18 +23,19 @@ form {
 
 
 input[type=submit] {
-  font-family: 'Roboto-Bold', sans-serif;
-  font-size: 16px;
+  font-family: TwitterChirp, sans-serif;
+  font-size: 13pt;
+  font-weight: 700;
   border: 0px;
   border-color: #fff;
   background-color: #990a2c;
   border-radius: 15px;
-  padding: 8px 8px 8px 8px;
+  padding: 10px;
   margin: auto 0px 15px -95px;
-  min-width: 80px;
-  max-width: 80px;
-  max-height: 35px;
-  min-height: 35px;
+  min-width: 100px;
+  max-width: 100px;
+  max-height: 44px;
+  min-height: 44px;
   color: #fff;
   flex: 2;
   outline: none;
@@ -45,31 +45,16 @@ input[type=submit] {
   right: 20px;
 }
 input[type=submit]:hover{background-color:#7f0824;}
-input[type=submit]:focus{background-color:#7f0824;}
+input[type=submit]:focus{background-color:#cf0824;}
 
-#heart{
-  margin: 1px 2px -3px 2px;
-  width: 16px;
-  height: 16px;
-  fill: #ff2250;
-}
+
 
 #footer{
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
+  font-family: TwitterChirp, sans-serif;
+  font-size: 10pt;
+  font-weight: 400;
   color: #000;
-  bottom: 1%;
   width: 100%;
   align-items: center;
 }
 
-#footer_img {
-  display: block;
-  width: 360px;
-  margin-top: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  bottom: 0px;
-  position: fixed;
-}

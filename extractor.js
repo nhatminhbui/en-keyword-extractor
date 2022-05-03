@@ -1,7 +1,9 @@
 function extract() {
     var candidates = removeStopwords(preprocess());
     x = candidates.length;
+    
     var text = candidates.join(" ");
+    
     var bag = new Set(text.split(" "));
     bag = Array.from(bag);
     bag = bag.slice(1);
@@ -10,17 +12,19 @@ function extract() {
     var freq = [];
     var degree = new Array(m).fill(0);
     for (var i = 0; i < m; i++) {
-        freq.push(countInstances(text, " "+bag[i]+" "));
+        freq.push(countInstances(text, " " + bag[i] + " "));
         for (var c = 0; c < x; c++) {
-            if (candidates[c].includes(" "+bag[i]+" ")) {
+            if (candidates[c].includes(" " +bag[i] +" ")) {
                 degree[i] += countInstances(candidates[c], " ") - 1;
             }
         }
     }
+    
     var word_scores = [];
     for (var i = 0; i < m; i++) {
         word_scores.push(degree[i] / freq[i]);
     }
+    
     var candidate_scores = new Array(x).fill(0);
     for (var c = 0; c < x; c++) {
         var candi = candidates[c].slice(1, -1).split(" ");
@@ -29,37 +33,36 @@ function extract() {
             candidate_scores[c] += word_scores[wi];
         }
     }
-    var combination = [];
+    
+    var kw_score = [];
     for (var i = 1; i < x; i++) {
-        combination.push(
-            {score: candidate_scores[i], kw: candidates[i].slice(1, -1)}
+        kw_score.push(
+     		{
+            kw: candidates[i].slice(1, -1),
+            score: candidate_scores[i],
+            }
         );
     }
-    combination.sort(function(a, b) {
+    
+    kw_score.sort(function(a, b) {
     return ((a.score > b.score) ? -1 : ((a.score == b.score) ? 0 : 1));
     });
 
-    var temp = [];
-    for (var i = 0; i < Math.floor(x/4); i++) {
-        temp.push(combination[i].kw);
+    var output = [];
+    for (var i = 0; i < Math.floor(x/5); i++) {
+        output.push(kw_score[i].kw);
     }
 
-    var combination = [];
-    for (var i = 0; i < Math.floor(x/5); i++) {
-        if (combination.includes(temp[i]) == false) {
-            combination.push(temp[i]);
-        }
-    }
-    x = combination.length;
+    x = output.length;
     kw_list = '<b>KEYWORDS:</b><br><br>'
     kw_list += '<div class="row"><div class="column">'
     for (var i = 0; i < Math.floor(x/2); i++) {
-        kw_list += "<p>"+combination[i] + "</p>";
+        kw_list += "<p>"+output[i] + "</p>";
     }
     kw_list += "</div>";
     kw_list += '<div class="column">'
     for (var i = Math.floor(x/2); i < x; i++) {
-        kw_list += "<p>"+combination[i] + "</p>";
+        kw_list += "<p>"+output[i] + "</p>";
     }
     kw_list += "</div>";
     kw_list+= "</div>";
