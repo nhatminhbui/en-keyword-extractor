@@ -1,60 +1,49 @@
-form {
-  display: flex;
-  flex-direction: row;
-  max-width: 700px;
-  border: 1px;
-  position: relative;
-}
-
 #textbox {
-  font-family: TwitterChirp, sans-serif;
-  font-size: 12pt;
-  font-weight: 400;
-  line-height: 140%;
-  border-radius: 10px;
-  border-color: #990a2c;
+  border: 2px solid #ccc;
+  font-family: DMSans, sans-serif;
+  font-size: 13pt;
+  color: #222;
+  line-height: 1.5;
+  border-radius: 13px;
   width: 100%;
   margin: 0px 0px;
-  padding: 2% 2% 65px 2%;
-  outline: none;
+  padding: 13px;
   resize: none;
-  font-variant-numeric: oldstyle-nums;
+  background: none;
 }
 
+#textbox:focus {
+  outline-offset: 0px !important;
+  outline: none !important;
+}
+
+#textbox::placeholder {
+  color: black;
+  opacity: .2;
+}
+
+#extract-button {
+  margin-top: 21px;
+  padding: 13px 34px;
+  border: 0px solid #ccc;
+  background: #0046ff;
+  border-radius: 8px;
+  
+  color: white;
+  font-size: 10pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+#extract-button:hover {
+  box-shadow: 0 16px 24px 0 rgba(0,0,0,.1);
+}
 
 input[type=submit] {
-  font-family: TwitterChirp, sans-serif;
+  font-family: DMSans, sans-serif;
   font-size: 13pt;
-  font-weight: 700;
-  border: 0px;
-  border-color: #fff;
-  background-color: #990a2c;
-  border-radius: 15px;
-  padding: 10px;
-  margin: auto 0px 15px -95px;
-  min-width: 100px;
-  max-width: 100px;
-  max-height: 44px;
-  min-height: 44px;
-  color: #fff;
-  flex: 2;
-  outline: none;
-  box-shadow: 0 2px 5px 0 rgba(130, 100, 50, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  position: absolute;
-  bottom: 0;
-  right: 20px;
 }
 input[type=submit]:hover{background-color:#7f0824;}
 input[type=submit]:focus{background-color:#cf0824;}
-
-
-
-#footer{
-  font-family: TwitterChirp, sans-serif;
-  font-size: 10pt;
-  font-weight: 400;
-  color: #000;
-  width: 100%;
-  align-items: center;
-}
-
