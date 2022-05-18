@@ -8,7 +8,7 @@ html {
     overflow: hidden;
     position: relative;
     min-height:100%;
-    /*background: linear-gradient(180deg, rgba(17,205,125,1) 0%, rgba(181,240,109,1) 37%, rgba(221,254,103,1) 55%, rgba(245,254,143,1) 82%, rgba(253,254,238,1) 100%); */*/}
+    /*background: linear-gradient(180deg, rgba(17,205,125,1) 0%, rgba(181,240,109,1) 37%, rgba(221,254,103,1) 55%, rgba(245,254,143,1) 82%, rgba(253,254,238,1) 100%); */}
 
 
 body {
@@ -35,7 +35,7 @@ body {
     background: white;
     padding: 55px;
     border-radius: 21px;
-    transition: .3s;
+    transition: .5s;
 }
 
 .content:hover {
