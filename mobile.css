@@ -21,11 +21,6 @@
     box-shadow: none;
   }
   
-  .content:hover {
-    box-shadow: none;
-  }
-  
-  
   #textbox {
     border: 1px solid #ccc;
   }

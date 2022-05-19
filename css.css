@@ -35,13 +35,10 @@ body {
     background: white;
     padding: 55px;
     border-radius: 21px;
-    transition: .5s;
-}
-
-.content:hover {
     box-shadow: 0 16px 24px 0 rgba(0,0,0,.1);
+    transition: .5s;
+    
 }
-
 
 a {
     color: black;
