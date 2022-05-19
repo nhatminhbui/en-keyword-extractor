@@ -49,7 +49,7 @@ function extract() {
     });
 
     var output = [];
-    for (var i = 0; i < Math.floor(x/5); i++) {   // get one third of the number of candidates
+    for (var i = 0; i < Math.floor(x/4); i++) {   // get one fourth of the number of candidates
         output.push(kw_score[i].kw);
     }
 
