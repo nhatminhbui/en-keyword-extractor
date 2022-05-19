@@ -34,23 +34,30 @@ function extract() {
         }
     }
     
-    var kw_score = [];
-    for (var i = 1; i < x; i++) {
-        kw_score.push(
-     		{
-            kw: candidates[i].slice(1, -1),
-            score: candidate_scores[i],
-            }
-        );
+    var kw_score = {};
+    for (var i = 0; i < x; i++) {
+    	var new_kw = candidates[i].slice(1, -1);
+    	if (new_kw in kw_score) { // check if new_kw already exists
+    		kw_score[new_kw] += candidate_scores[i];
+    	} else {
+		    kw_score[new_kw] = candidate_scores[i];
+        }
     }
     
-    kw_score.sort(function(a, b) {
-    return ((a.score > b.score) ? -1 : ((a.score == b.score) ? 0 : 1));
-    });
+    kw_score = Object.keys(kw_score).map(function(key) {
+	  return [key, kw_score[key]];
+	});
 
-    var output = [];
-    for (var i = 0; i < Math.floor(x/4); i++) {   // get one fourth of the number of candidates
-        output.push(kw_score[i].kw);
+    kw_score.sort(function(kw, score) {
+  	return score[1] - kw[1];
+	});	
+	
+	var takes = Math.floor(x/4); // get one fourth of the number of candidates
+	kw_score = kw_score.slice(0, takes); // crete new array
+	
+    var output = []; 
+    for (var ki = 0; ki < takes; ki++) {
+    	output.push(kw_score[ki][0]);
     }
 
     document.getElementById("kw-section").innerHTML = "Keywords";
@@ -84,8 +91,14 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 function preprocess() {
-    var delimiters = ['.“', ',"', "(", ")", "[", "]", "{", "}", ". ", ", ", ":", ";", "!", "#", "$", "&", "?", " - ", "_", "—", "+", "<", ">", '“', '”', '–', "…", ' / ', "|", '’', "'"];
+    var delimiters = [". ", ", ", "’", "'", '”', '“',
+    				  "(", ")", "[", "]", "{", "}", ': ', ';',
+    				  "!", "#", "$", "&", "?", " - ", "_", "—", "+", "<", ">",
+    				  '–', "…", ' / ', "|"];
     var str = document.getElementById("textbox").value.toLowerCase();
+    str = str.replaceAll("\n", " ");
+    str = str.replaceAll('"', " ");
+    str = str.replaceAll("”", " ");
     str = " " + str + " ";
     str = splitMulti(str, delimiters).join(" wwttff ");
     return str;
