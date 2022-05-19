@@ -30,7 +30,6 @@ body {
     font-variant-numeric: oldstyle-nums;
 }
 
-
 .content {
     margin: 0px auto;
     max-width: 720px;
@@ -75,6 +74,8 @@ b {
 .keywords-area {
     line-height: 100%;
     margin-top: 55px;
+    opacity: 0;
+    transition: 1s;
 }
 
 .kw {
@@ -85,7 +86,6 @@ b {
     background: #ededf2;
     border-radius: 5px;
     text-transform: lowercase;
-    transition: 0.3s;
 }
 
 .kw:hover {

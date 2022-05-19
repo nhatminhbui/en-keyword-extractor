@@ -62,6 +62,13 @@ function extract() {
 
     document.getElementById("kw-section").innerHTML = "Keywords";
     insertKWToHtml(output);
+    
+    const ele=document.getElementsByClassName("keywords-area")[0];
+	const custom_style={
+		opacity: "1"
+	};
+	Object.assign(ele.style,custom_style);
+
 }
 
 
