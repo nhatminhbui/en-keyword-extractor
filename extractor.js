@@ -113,6 +113,8 @@ function preprocess() {
 
 function removeStopwords(str) {
     n = fox_stoplist.length;
+    str = str.replaceAll("ain't", "is not");
+    str = str.replaceAll("ain’t", "is not");
     str = str.replaceAll("n't", " not");
     str = str.replaceAll("n’t", " not");
     str = str.replaceAll("'ve", " have");
