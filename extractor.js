@@ -97,22 +97,15 @@ String.prototype.replaceAll = function(search, replacement) {
     return target.split(search).join(replacement);
 };
 
-function preprocess() {
-    var delimiters = [". ", ", ", "’", "'", '”', '“',
-    				  "(", ")", "[", "]", "{", "}", ': ', ';',
-    				  "!", "#", "$", "&", "?", " - ", "_", "—", "+", "<", ">",
-    				  '–', "…", ' / ', "|"];
-    var str = document.getElementById("textbox").value.toLowerCase();
-    str = str.replaceAll("\n", " ");
-    str = str.replaceAll('"', " ");
-    str = str.replaceAll("”", " ");
-    str = " " + str + " ";
-    str = splitMulti(str, delimiters).join(" wwttff ");
-    return str;
-}
 
-function removeStopwords(str) {
-    n = fox_stoplist.length;
+function preprocess() {
+    var str = document.getElementById("textbox").value.toLowerCase();
+    
+    var delimiters = [". ", ", ", "’", "'", '”', '“',
+				  "(", ")", "[", "]", "{", "}", ': ', ';',
+				  "!", "#", "$", "&", "?", " - ", "_", "—", "+", "<", ">",
+				  '–', "…", ' / ', "|"];
+    
     str = str.replaceAll("ain't", "is not");
     str = str.replaceAll("ain’t", "is not");
     str = str.replaceAll("n't", " not");
@@ -123,7 +116,19 @@ function removeStopwords(str) {
     str = str.replaceAll("t's", "t is");
     str = str.replaceAll("’ll", " will");
     str = str.replaceAll("'ll", " will");
-    str = str.replaceAll('\n', " wwttff ");
+    
+    str = str.replaceAll("\n", " ");
+    str = str.replaceAll('"', " ");
+    str = str.replaceAll("”", " ");
+    
+    str = " " + str + " ";
+    str = splitMulti(str, delimiters).join(" wwttff ");
+    return str;
+}
+
+
+function removeStopwords(str) {
+    n = fox_stoplist.length;
     
     for (var i = 0; i < n; i++) {
         str = str.replaceAll(" "+fox_stoplist[i]+" ", " wwttff ");
