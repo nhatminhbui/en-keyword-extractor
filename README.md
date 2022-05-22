@@ -1,5 +1,5 @@
-# Quohat Keyword Extractor
+# Keyword Extractor
 
-Extract keyword in your English documents!
+Extract keywords in your English documents!
 
-https://quohat.github.io/en-keyword-extractor
+https://nhatminhbui.github.io/en-keyword-extractor
